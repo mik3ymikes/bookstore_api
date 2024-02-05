@@ -27,10 +27,28 @@ class BooksController < ApplicationController
 
 
 
+    def update
+        book=Book.find(params[:id])
+        if book.update(book_params)
+            render json: book
+           else
+            render json: {error: "unable to show"}
+           end
+
+    end
 
 
 
+    def delete
+      book=Book.find(params{:id})
+      if book.destroy
+        render json: book
+    else
+        render json:{error: "unalbe to destroy"}
+    
+    end
 
+    end
 
 
 
