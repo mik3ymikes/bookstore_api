@@ -16,14 +16,14 @@ class BooksController < ApplicationController
 
 
 
-    # def create
-    #   book=Book.create(book_params)
-    #   if book.save
-    #     render json: book
-    # else
-    #     render json: {error: "unable to create"}
-    # end
-    # end
+    def create
+      book=Book.create(book_params)
+      if book.save
+        render json: book
+    else
+        render json: {error: "unable to create"}
+    end
+    end
 
 
 
