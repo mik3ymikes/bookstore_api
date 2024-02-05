@@ -21,7 +21,7 @@ class BooksController < ApplicationController
       if book.save
         render json: book
     else
-        render json: {error: "unable to create"}
+        render json: {error: "unable to create", details: book.errors}
     end
     end
 
@@ -39,8 +39,8 @@ class BooksController < ApplicationController
 
 
 
-    def delete
-      book=Book.find(params{:id})
+    def destroy
+      book=Book.find(params[:id])
       if book.destroy
         render json: book
     else
@@ -54,6 +54,6 @@ class BooksController < ApplicationController
 
 
 def book_params
-    params.require(:book).permit(:title)
+    params.require(:book).permit(:title, :author_id)
 end
 end
