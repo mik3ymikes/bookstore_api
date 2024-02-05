@@ -27,8 +27,25 @@ end
 end
 
 
+def update
+    author=Author.find(params[:id])
+    if author.update(author_params)
+        render json: author
+    else
+        render json: {error: "unable to create"}
+    end
+end
 
 
+def destroy
+author=Author.find(params[:id])
+if author.destroy
+    render json: author
+else
+    render json:{error: "unalbe to destroy"}
+
+end
+end
 
 
 
