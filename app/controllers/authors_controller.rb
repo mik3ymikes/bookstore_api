@@ -16,6 +16,16 @@ if author.save
 end
 
 
+def create
+author=Author.create(author_params)
+if author.save
+    render json: author
+else
+    render json: {error: "unable to create"}
+end
+
+end
+
 
 
 
